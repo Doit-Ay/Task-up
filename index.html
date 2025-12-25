@@ -3,70 +3,278 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Privacy Policy for Task Up - A secure, offline-first to-do list app that stores all your data locally on your device.">
     <title>Privacy Policy - Task Up</title>
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            line-height: 1.6;
-            max-width: 800px;
-            margin: 0 auto;
+            line-height: 1.8;
+            color: #1a1a1a;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
             padding: 20px;
-            color: #333;
-            background-color: #f5f5f5;
         }
+        
         .container {
+            max-width: 900px;
+            margin: 0 auto;
             background-color: white;
-            padding: 40px;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            padding: 50px;
+            border-radius: 16px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            animation: fadeIn 0.6s ease-in;
         }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 50px;
+            padding-bottom: 30px;
+            border-bottom: 2px solid #e8eaf6;
+        }
+        
+        .app-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 20px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            font-size: 40px;
+            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4);
+        }
+        
         h1 {
             color: #6200ea;
-            border-bottom: 3px solid #6200ea;
-            padding-bottom: 10px;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            font-weight: 700;
         }
-        h2 {
-            color: #6200ea;
-            margin-top: 30px;
-        }
-        h3 {
-            color: #333;
-            margin-top: 20px;
-        }
+        
         .last-updated {
             color: #666;
-            font-style: italic;
-            margin-bottom: 30px;
-        }
-        ul {
-            padding-left: 20px;
-        }
-        li {
-            margin: 8px 0;
-        }
-        .summary {
-            background-color: #e8eaf6;
-            padding: 20px;
-            border-radius: 6px;
-            border-left: 4px solid #6200ea;
-            margin-top: 30px;
-            font-weight: 500;
-        }
-        .contact {
+            font-size: 0.95em;
             background-color: #f5f5f5;
-            padding: 15px;
-            border-radius: 6px;
+            padding: 8px 16px;
+            border-radius: 20px;
+            display: inline-block;
+        }
+        
+        h2 {
+            color: #6200ea;
+            margin-top: 40px;
+            margin-bottom: 15px;
+            font-size: 1.8em;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        h2::before {
+            content: "●";
+            color: #667eea;
+            font-size: 0.5em;
+        }
+        
+        h3 {
+            color: #333;
+            margin-top: 25px;
+            margin-bottom: 12px;
+            font-size: 1.3em;
+            font-weight: 600;
+        }
+        
+        p {
+            margin-bottom: 15px;
+            color: #444;
+        }
+        
+        ul {
+            margin: 15px 0;
+            padding-left: 0;
+            list-style: none;
+        }
+        
+        li {
+            margin: 12px 0;
+            padding-left: 30px;
+            position: relative;
+            color: #444;
+        }
+        
+        li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #667eea;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+        
+        .highlight-box {
+            background: linear-gradient(135deg, #667eea15 0%, #764ba215 100%);
+            padding: 25px;
+            border-radius: 12px;
+            border-left: 5px solid #6200ea;
+            margin: 25px 0;
+        }
+        
+        .summary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 12px;
+            margin-top: 40px;
+            font-size: 1.1em;
+            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.3);
+        }
+        
+        .summary strong {
+            display: block;
+            margin-bottom: 10px;
+            font-size: 1.2em;
+        }
+        
+        .contact {
+            background-color: #f8f9fa;
+            padding: 25px;
+            border-radius: 12px;
+            margin: 25px 0;
+            border: 2px solid #e8eaf6;
+        }
+        
+        .contact ul {
+            margin-top: 15px;
+        }
+        
+        .contact li::before {
+            content: "→";
+        }
+        
+        .badge {
+            display: inline-block;
+            background-color: #4caf50;
+            color: white;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            font-weight: 600;
+            margin: 5px 5px 5px 0;
+        }
+        
+        .badge.offline {
+            background-color: #2196f3;
+        }
+        
+        .badge.secure {
+            background-color: #ff9800;
+        }
+        
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
             margin: 20px 0;
+        }
+        
+        .feature-item {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            border: 2px solid #e8eaf6;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .feature-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.2);
+        }
+        
+        .feature-icon {
+            font-size: 2em;
+            margin-bottom: 10px;
+        }
+        
+        strong {
+            color: #6200ea;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 30px 20px;
+            }
+            
+            h1 {
+                font-size: 2em;
+            }
+            
+            h2 {
+                font-size: 1.5em;
+            }
+            
+            .app-icon {
+                width: 60px;
+                height: 60px;
+                font-size: 30px;
+            }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Privacy Policy for Task Up</h1>
-        <p class="last-updated"><strong>Last Updated: December 25, 2025</strong></p>
+        <div class="header">
+            <div class="app-icon">✓</div>
+            <h1>Privacy Policy</h1>
+            <p class="last-updated">Last Updated: December 25, 2025</p>
+            <div style="margin-top: 20px;">
+                <span class="badge offline">100% Offline</span>
+                <span class="badge secure">Secure</span>
+                <span class="badge">No Data Collection</span>
+            </div>
+        </div>
 
         <h2>Overview</h2>
-        <p>Task Up ("we", "our", or "the app") is committed to protecting your privacy. This privacy policy explains how our to-do list application handles your information.</p>
+        <div class="highlight-box">
+            <p><strong>Task Up</strong> is committed to protecting your privacy. This privacy policy explains how our to-do list application handles your information. The short version: <strong>we don't collect, store, or share any of your data</strong>. Everything stays on your device.</p>
+        </div>
+
+        <h2>What Makes Task Up Private?</h2>
+        <div class="feature-grid">
+            <div class="feature-item">
+                <div class="feature-icon">📱</div>
+                <strong>Local Only</strong>
+                <p style="font-size: 0.9em; margin-top: 8px;">All data stays on your device</p>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon">🔒</div>
+                <strong>Zero Tracking</strong>
+                <p style="font-size: 0.9em; margin-top: 8px;">No analytics or monitoring</p>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon">🚫</div>
+                <strong>No Servers</strong>
+                <p style="font-size: 0.9em; margin-top: 8px;">No cloud storage or syncing</p>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon">✓</div>
+                <strong>Full Control</strong>
+                <p style="font-size: 0.9em; margin-top: 8px;">You own 100% of your data</p>
+            </div>
+        </div>
 
         <h2>Information Collection and Usage</h2>
         
@@ -75,20 +283,24 @@
         <ul>
             <li>Collect any personal information</li>
             <li>Transmit data to external servers</li>
-            <li>Access your contacts, location, or other device data</li>
-            <li>Use analytics or tracking services</li>
-            <li>Share data with third parties</li>
+            <li>Access your contacts, location, or other sensitive device data</li>
+            <li>Use analytics, tracking, or monitoring services</li>
+            <li>Share data with third parties or advertisers</li>
+            <li>Require account creation or login</li>
+            <li>Use cookies or similar tracking technologies</li>
         </ul>
 
         <h3>What We Store Locally</h3>
-        <p>The app stores the following information on your device using local storage:</p>
+        <p>The app stores the following information on your device using secure local storage:</p>
         <ul>
-            <li>Task titles and descriptions</li>
-            <li>Task due dates</li>
-            <li>Task priority levels</li>
+            <li>Task titles and descriptions you create</li>
+            <li>Task due dates you set</li>
+            <li>Task priority levels (Low, Medium, High)</li>
             <li>Task completion status</li>
         </ul>
-        <p>This data is stored exclusively on your device and is never transmitted over the internet.</p>
+        <div class="highlight-box">
+            <p><strong>Important:</strong> This data is stored exclusively on your device and is <strong>never transmitted over the internet</strong>. We have no servers, no databases, and no way to access your tasks.</p>
+        </div>
 
         <h2>Data Security</h2>
         <p>All task data is stored locally using your device's secure storage system (AsyncStorage). The data remains on your device and is protected by your device's security measures.</p>
@@ -132,7 +344,13 @@
         <p>By using Task Up, you consent to this privacy policy. If you do not agree with this policy, please do not use the app.</p>
 
         <div class="summary">
-            <strong>Summary:</strong> Task Up is a completely offline to-do list app. All your tasks are stored only on your device. We don't collect, transmit, or share any of your data.
+            <strong>🔐 Privacy Guarantee</strong>
+            Task Up is a completely offline to-do list app. All your tasks are stored only on your device. We don't collect, transmit, store, or share any of your data. Your privacy is 100% protected because we literally have no way to access your information.
+        </div>
+        
+        <div style="text-align: center; margin-top: 40px; padding-top: 30px; border-top: 2px solid #e8eaf6; color: #666;">
+            <p style="margin: 0;">Made with ❤️ for your privacy</p>
+            <p style="margin: 5px 0 0 0; font-size: 0.9em;">Task Up • Package: com.taskup.todo9482</p>
         </div>
     </div>
 </body>
